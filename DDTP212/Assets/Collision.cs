@@ -5,7 +5,7 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
 
-    void  nCollisionEnter2D(Collision2D collision)              {
+    void  CollisionEnter2D(Collision2D collision)              {
         Debug.Log("Ouch!");
    
     
@@ -13,5 +13,9 @@ public class Collision : MonoBehaviour
     
     
     
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("What was that!?");
     }
 }
