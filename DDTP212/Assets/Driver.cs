@@ -13,7 +13,7 @@ public class Driver : MonoBehaviour
      
     }
 
-    
+    // Collider
     void Update()
     {
         float steerAmount = Input.GetAxis("Horizontal") * steerSpeed * Time.deltaTime;
