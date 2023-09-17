@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
-
+    bool hasPackage;
+    private void Start()
+    {
+        Debug.Log(hasPackage);
+            
+    }
     void  CollisionEnter2D(Collision2D other)              {
         Debug.Log("Ouch!");
    
@@ -19,8 +24,9 @@ public class Collision : MonoBehaviour
         if(other.tag == "Package")
         {
             Debug.Log("Package picked up!");
+            hasPackage = true;
         }
-        if (other.tag == "Customer") ;
+        if (other.tag == "Customer" && hasPackage) ;
         {
             Debug.Log("Package Delivered!");
         }
