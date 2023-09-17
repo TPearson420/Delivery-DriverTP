@@ -1,13 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    [SerializeField] Color32 hasPackageColor = new Color32(1, 1, 1, 1);
+
+    [SerializeField] Color32 noPackageColor = new Color32(1, 1, 1, 1);
+
+
     [SerializeField] float destroydelay = 0.5f;
     bool hasPackage;
-    private void Start()
+
+    SpriteRenderer spriteRenderer;
+    void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    
+
+
+    
+    
         Debug.Log(hasPackage);
             
     }
@@ -26,10 +40,13 @@ public class Collision : MonoBehaviour
         {
             Debug.Log("Package picked up!");
             hasPackage = true;
+            spriteRenderer.color = hasPackageColor;
             Destroy(other.gameObject, destroydelay);
         }
-        if (other.tag == "Customer" && hasPackage) ;
+        if (other.tag == "Customer" && hasPackage);
+
         {
+            spriteRenderer.color = noPackageColor;
             Debug.Log("Package Delivered!");
         }
 
